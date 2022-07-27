@@ -79,12 +79,12 @@
 
 .product-attrs label:hover {
 	cursor: pointer;
-	border: 2px solid #18ba9b;
+	border: 2px solid #e2a20b;
 }
 
 .product-attrs input:checked ~ label {
-    color: #18ba9b;
-    border-color: #18ba9b;
+    color: #e2a20b;
+    border-color: #e2a20b;
 }
 
 .product-detail .add-to-cart {
@@ -124,7 +124,7 @@
 }
 
 .product-detail .btn-add-cart {
-    background: #18ba9b;
+    background: #e2a20b;
     font-size: 18px;
     padding: 10px 25px;
     border: 0;

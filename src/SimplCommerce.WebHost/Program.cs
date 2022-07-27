@@ -44,7 +44,7 @@ void ConfigureService()
     builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
     builder.Services.AddTransient(typeof(IRepositoryWithTypedId<,>), typeof(RepositoryWithTypedId<,>));
     builder.Services.AddScoped<SlugRouteValueTransformer>();
-
+  
     builder.Services.AddCustomizedLocalization();
 
     builder.Services.AddCustomizedMvc(GlobalConfiguration.Modules);
@@ -73,6 +73,8 @@ void ConfigureService()
 
     builder.Services.AddScoped<ServiceFactory>(p => p.GetService);
     builder.Services.AddScoped<IMediator, Mediator>();
+
+    builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
     builder.Services.AddSwaggerGen(c =>
     {

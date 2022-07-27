@@ -13,6 +13,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Themes\SampleTheme\**" />
+    <Content Remove="Themes\SampleTheme\**" />
+    <EmbeddedResource Remove="Themes\SampleTheme\**" />
+    <None Remove="Themes\SampleTheme\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\css\styles.css" />
+    <None Remove="wwwroot\themes\CozaStore\images\image-removebg-preview.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Modules\SimplCommerce.Module.ActivityLog\SimplCommerce.Module.ActivityLog.csproj" />
     <ProjectReference Include="..\Modules\SimplCommerce.Module.Catalog\SimplCommerce.Module.Catalog.csproj" />
     <ProjectReference Include="..\Modules\SimplCommerce.Module.Cms\SimplCommerce.Module.Cms.csproj" />
@@ -61,6 +73,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -71,5 +84,9 @@
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00767" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\" />
   </ItemGroup>
 </Project>
