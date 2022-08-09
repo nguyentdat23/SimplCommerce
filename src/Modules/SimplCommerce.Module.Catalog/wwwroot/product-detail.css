@@ -29,7 +29,6 @@
     padding: 5px 10px;
     background-color: #FFFFFF;
     text-align: left;
-    border: 2px dashed #E0E0E0;
     overflow: hidden;
 }
 
@@ -44,14 +43,14 @@
     clear: left;
 }
 
-.product-price h3 {
-    font-size: 30px;
-    font-weight: 400;
-    color: red;
-    margin: 0;
-    float: left;
-    padding-right: 20px;
-}
+    .product-price h3 {
+        font-size: 30px;
+        font-weight: 400;
+        color: #D97D5E;
+        margin: 0;
+        float: left;
+        padding-right: 20px;
+    }
 
 .product-attrs input {
     left: -9999px;
@@ -124,7 +123,7 @@
 }
 
 .product-detail .btn-add-cart {
-    background: #e2a20b;
+    background: #d97d5e;
     font-size: 18px;
     padding: 10px 25px;
     border: 0;

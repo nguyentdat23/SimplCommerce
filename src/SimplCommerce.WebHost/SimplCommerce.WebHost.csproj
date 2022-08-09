@@ -20,7 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="wwwroot\css\styles.css" />
+    <None Remove="wwwroot\favicon.ico" />
+    <None Remove="wwwroot\themes\CozaStore\fonts\Kalam\Kalam-Bold.ttf" />
+    <None Remove="wwwroot\themes\CozaStore\fonts\Kalam\Kalam-Light.ttf" />
+    <None Remove="wwwroot\themes\CozaStore\fonts\Kalam\Kalam-Regular.ttf" />
     <None Remove="wwwroot\themes\CozaStore\images\image-removebg-preview.png" />
   </ItemGroup>
 
