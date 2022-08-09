@@ -9,7 +9,7 @@ RUN sed -i 's/UseSqlServer/UseNpgsql/' src/SimplCommerce.WebHost/Extensions/Serv
 
 RUN rm src/SimplCommerce.WebHost/Migrations/* && cp -f src/SimplCommerce.WebHost/appsettings.docker.json src/SimplCommerce.WebHost/appsettings.json
 
-RUN dotnet tool install --global dotnet-ef --version 5.0.0
+RUN dotnet tool install --global dotnet-ef --version 6.0.0
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
 # ef core migrations run in debug, so we have to build in Debug for copying module correctly 
@@ -28,7 +28,7 @@ RUN curl -SL "https://github.com/rdvojmoc/DinkToPdf/raw/v1.0.8/v0.12.4/64%20bit/
 # remove BOM for psql	
 RUN sed -i -e '1s/^\xEF\xBB\xBF//' /app/src/SimplCommerce.WebHost/dbscript.sql
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 
 # hack to make postgresql-client install work on slim
 RUN mkdir -p /usr/share/man/man1 \
