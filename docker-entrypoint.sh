@@ -1,12 +1,13 @@
 #!/bin/bash
+export PGPASSWORD='123qwe!!'; 
 set -e
 
-if sudo -u postgres psql -lqt | cut -d \| -f 1 | grep simplcommerce; then
+if psql -h hostserver -p 5432 -U postgres -lqt | cut -d \| -f 1 | grep simplcommerce; then
     echo "simplcommerce database existed"
 else
     echo "create new database simplcommerce"
-	sudo -u postgres psql -c "CREATE DATABASE simplcommerce WITH ENCODING 'UTF8'"
-	sudo -u postgres psql -d simplcommerce -a -f /app/dbscript.sql
+	psql -h hostserver -p 5432 -U postgres -c "CREATE DATABASE simplcommerce WITH ENCODING 'UTF8'"
+	psql -h hostserver -p 5432 -U postgres -d simplcommerce -a -f /app/dbscript.sql
 fi
 
 cd /app && dotnet SimplCommerce.WebHost.dll 
