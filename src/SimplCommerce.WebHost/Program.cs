@@ -95,7 +95,7 @@ void Configure()
             context => !context.Request.Path.StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase),
             a => a.UseExceptionHandler("/Home/Error")
         );
-        app.UseHsts();
+        //app.UseHsts();
     }
 
     app.UseWhen(
@@ -103,7 +103,7 @@ void Configure()
         a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")
     );
 
-    app.UseHttpsRedirection();
+    //app.UseHttpsRedirection();
     app.UseCustomizedStaticFiles(builder.Environment);
     app.UseRouting();
     app.UseSwagger();
