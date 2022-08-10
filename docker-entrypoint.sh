@@ -1,5 +1,5 @@
 #!/bin/bash
-export PGPASSWORD='e33b807d6513893b4b0249a2134d2ec2'; 
+export PGPASSWORD='123qwe!!'; 
 set -e
 
 if psql -h 103.3.245.180 -p 5432 -U postgres -lqt | cut -d \| -f 1 | grep simplcommerce; then
