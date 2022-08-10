@@ -4,6 +4,7 @@ using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.EntityFrameworkCore;
@@ -105,13 +106,22 @@ void Configure()
 
     //app.UseHttpsRedirection();
     app.UseCustomizedStaticFiles(builder.Environment);
+    app.UseCors(builder =>
+    {
+        builder
+        .AllowAnyOrigin();
+    });
     app.UseRouting();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "SimplCommerce API V1");
     });
-    app.UseCookiePolicy();
+    app.UseCookiePolicy( new CookiePolicyOptions
+    {
+        HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.None,
+        MinimumSameSitePolicy = SameSiteMode.None,
+    });
     app.UseCustomizedIdentity();
     app.UseCustomizedRequestLocalization();
     app.UseEndpoints(endpoints =>
