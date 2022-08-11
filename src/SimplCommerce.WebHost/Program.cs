@@ -29,7 +29,7 @@ var app = builder.Build();
 Configure();
 app.Run();
 
-void ConfigureService() 
+void ConfigureService()
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     builder.Configuration.AddEntityFrameworkConfig(options =>
@@ -45,7 +45,7 @@ void ConfigureService()
     builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
     builder.Services.AddTransient(typeof(IRepositoryWithTypedId<,>), typeof(RepositoryWithTypedId<,>));
     builder.Services.AddScoped<SlugRouteValueTransformer>();
-  
+
     builder.Services.AddCustomizedLocalization();
 
     builder.Services.AddCustomizedMvc(GlobalConfiguration.Modules);
@@ -84,7 +84,9 @@ void ConfigureService()
 }
 
 void Configure()
-    { 
+{
+    app.UseForwardedHeaders();
+
     if (app.Environment.IsDevelopment())
     {
         app.UseDeveloperExceptionPage();
@@ -96,32 +98,22 @@ void Configure()
             context => !context.Request.Path.StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase),
             a => a.UseExceptionHandler("/Home/Error")
         );
-        //app.UseHsts();
+        app.UseHsts();
     }
 
     app.UseWhen(
         context => !context.Request.Path.StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase),
         a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")
     );
-
-    //app.UseHttpsRedirection();
+    app.UseHttpsRedirection();
     app.UseCustomizedStaticFiles(builder.Environment);
-    app.UseCors(builder =>
-    {
-        builder
-        .AllowAnyOrigin();
-    });
     app.UseRouting();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "SimplCommerce API V1");
     });
-    app.UseCookiePolicy( new CookiePolicyOptions
-    {
-        HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.None,
-        MinimumSameSitePolicy = SameSiteMode.None,
-    });
+    app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Strict });
     app.UseCustomizedIdentity();
     app.UseCustomizedRequestLocalization();
     app.UseEndpoints(endpoints =>

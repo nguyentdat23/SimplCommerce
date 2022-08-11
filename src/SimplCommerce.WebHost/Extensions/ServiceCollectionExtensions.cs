@@ -26,6 +26,8 @@ using SimplCommerce.Module.Core.Extensions;
 using SimplCommerce.Module.Core.Models;
 using SimplCommerce.WebHost.IdentityServer;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace SimplCommerce.WebHost.Extensions
 {
@@ -132,6 +134,15 @@ namespace SimplCommerce.WebHost.Extensions
 
         public static IServiceCollection AddCustomizedIdentity(this IServiceCollection services, IConfiguration configuration)
         {
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+
+                options.KnownNetworks.Clear();
+                options.KnownProxies.Clear();
+            });
+
             services
                 .AddIdentity<User, Role>(options =>
                 {
@@ -164,25 +175,6 @@ namespace SimplCommerce.WebHost.Extensions
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie()
-                .AddFacebook(x =>
-                {
-                    x.AppId = configuration["Authentication:Facebook:AppId"];
-                    x.AppSecret = configuration["Authentication:Facebook:AppSecret"];
-
-                    x.Events = new OAuthEvents
-                    {
-                        OnRemoteFailure = ctx => HandleRemoteLoginFailure(ctx)
-                    };
-                })
-                .AddGoogle(x =>
-                {
-                    x.ClientId = configuration["Authentication:Google:ClientId"];
-                    x.ClientSecret = configuration["Authentication:Google:ClientSecret"];
-                    x.Events = new OAuthEvents
-                    {
-                        OnRemoteFailure = ctx => HandleRemoteLoginFailure(ctx)
-                    };
-                })
                 .AddLocalApi(JwtBearerDefaults.AuthenticationScheme, option =>
                 {
                     option.ExpectedScope = "api.simplcommerce";
@@ -213,6 +205,7 @@ namespace SimplCommerce.WebHost.Extensions
                     context.Response.Redirect(context.RedirectUri);
                     return Task.CompletedTask;
                 };
+                x.Cookie.HttpOnly = true;
             });
             return services;
         }

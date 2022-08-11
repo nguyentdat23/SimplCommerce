@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
-  
+
 WORKDIR /app
 COPY . ./
 
@@ -14,34 +14,34 @@ ENV PATH="${PATH}:/root/.dotnet/tools"
 
 # ef core migrations run in debug, so we have to build in Debug for copying module correctly 
 RUN dotnet restore && dotnet build \
-    && cd src/SimplCommerce.WebHost \
-	&& dotnet ef migrations add initialSchema \
-    && dotnet ef migrations script -o dbscript.sql
+	&& cd src/SimplCommerce.WebHost 
+#	&& dotnet ef migrations add initialSchema \
+#    && dotnet ef migrations script -o dbscript.sql
 
 RUN dotnet build -c Release \
 	&& cd src/SimplCommerce.WebHost \
-    && dotnet build -c Release \
+	&& dotnet build -c Release \
 	&& dotnet publish -c Release -o out
-	
-RUN curl -SL "https://github.com/rdvojmoc/DinkToPdf/raw/v1.0.8/v0.12.4/64%20bit/libwkhtmltox.so" --output /app/src/SimplCommerce.WebHost/out/libwkhtmltox.so
+
+#RUN curl -SL "https://github.com/rdvojmoc/DinkToPdf/raw/v1.0.8/v0.12.4/64%20bit/libwkhtmltox.so" --output /app/src/SimplCommerce.WebHost/out/libwkhtmltox.so
 
 # remove BOM for psql	
-RUN sed -i -e '1s/^\xEF\xBB\xBF//' /app/src/SimplCommerce.WebHost/dbscript.sql
+#RUN sed -i -e '1s/^\xEF\xBB\xBF//' /app/src/SimplCommerce.WebHost/dbscript.sql
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 
 # hack to make postgresql-client install work on slim
 RUN mkdir -p /usr/share/man/man1 \
-    && mkdir -p /usr/share/man/man7
+	&& mkdir -p /usr/share/man/man7
 
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends postgresql-client \
-	&& apt-get install libgdiplus -y \
-	&& rm -rf /var/lib/apt/lists/*
+# RUN apt-get update \
+# 	&& apt-get install -y --no-install-recommends postgresql-client \
+# 	&& apt-get install libgdiplus -y \
+# 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app	
 COPY --from=build-env /app/src/SimplCommerce.WebHost/out ./
-COPY --from=build-env /app/src/SimplCommerce.WebHost/dbscript.sql ./
+# COPY --from=build-env /app/src/SimplCommerce.WebHost/dbscript.sql ./
 
 COPY --from=build-env /app/docker-entrypoint.sh /
 RUN chmod 755 /docker-entrypoint.sh
