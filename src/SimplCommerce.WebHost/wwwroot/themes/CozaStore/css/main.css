@@ -139,7 +139,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .loader05 {
     width: 56px;
     height: 56px;
-    border: 4px solid #717fe0;
+    border: 4px solid #e3af2f;
     border-radius: 50%;
     position: relative;
     animation: loader-scale 1s ease-out infinite;
@@ -172,7 +172,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
     height: 38px;
     bottom: 0px;
     right: 40px;
-    background-color: #717fe0;
+    background-color: #e3af2f;
     opacity: 0.5;
     justify-content: center;
     align-items: center;
@@ -192,7 +192,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .btn-back-to-top:hover {
     opacity: 1;
-    background-color: #717fe0;
+    background-color: #e3af2f;
 }
 
 @media (max-width: 575px) {
@@ -510,7 +510,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
     min-width: 15px;
     height: 15px;
     padding: 0 3px;
-    background-color: #717fe0;
+    background-color: #e3af2f;
 }
 
 /*---------------------------------------------*/
@@ -739,7 +739,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
     .main-menu-m {
         padding-top: 10px;
         padding-bottom: 10px;
-        background-color: #717fe0;
+        background-color: #e3af2f;
     }
 
         .main-menu-m > li > a {
@@ -1649,7 +1649,7 @@ button.mfp-close {
 }
 
 .swal-button {
-    background-color: #717fe0;
+    background-color: #e3af2f;
     font-family: Poppins-Regular;
     font-size: 16px;
     color: white;
@@ -1736,8 +1736,8 @@ button.mfp-close {
 
     .show-search:hover:after,
     .show-filter:hover:after {
-        background-color: #717fe0;
-        border-color: #717fe0;
+        background-color: #e3af2f;
+        border-color: #e3af2f;
     }
 
 /*---------------------------------------------*/
@@ -2139,7 +2139,7 @@ input.num-product {
 }
 
 .cl1 {
-    color: #717fe0;
+    color: #e3af2f;
 }
 
 .cl2 {
@@ -2698,7 +2698,7 @@ input.num-product {
 }
 
 .bg1 {
-    background-color: #717fe0;
+    background-color: #e3af2f;
 }
 
 .bg2 {
@@ -3205,11 +3205,11 @@ input.num-product {
 }
 
 .hov-cl1:hover {
-    color: #717fe0;
+    color: #e3af2f;
 }
 
 .hov-bg1:hover {
-    background-color: #717fe0;
+    background-color: #e3af2f;
 }
 
 /*---------------------------------------------*/
@@ -3249,13 +3249,13 @@ input.num-product {
 .hov-btn2:hover {
     border-color: #fff;
     background-color: #fff;
-    color: #717fe0;
+    color: #e3af2f;
 }
 
 /*---------------------------------------------*/
 .hov-btn3:hover {
-    border-color: #717fe0;
-    background-color: #717fe0;
+    border-color: #e3af2f;
+    background-color: #e3af2f;
     color: #fff;
 }
 
@@ -3265,8 +3265,8 @@ input.num-product {
 
 /*---------------------------------------------*/
 .hov-tag1:hover {
-    color: #717fe0;
-    border-color: #717fe0;
+    color: #e3af2f;
+    border-color: #e3af2f;
 }
 
 
