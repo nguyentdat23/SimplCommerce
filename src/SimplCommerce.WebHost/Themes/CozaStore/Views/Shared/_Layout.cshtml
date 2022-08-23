@@ -124,21 +124,21 @@
     <footer class="bg3 p-t-75 p-b-32 m-t-75">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-lg-3 p-b-50">
+                <div class="col-sm-6 col-lg-4 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
-                        Categories
+                        @Localizer["Categories"]
                     </h4>
                     <vc:menu menu-id="2"></vc:menu>
                 </div>
 
-                <div class="col-sm-6 col-lg-3 p-b-50">
+                <div class="col-sm-6 col-lg-4 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
                         Help
                     </h4>
                     <vc:menu menu-id="1"></vc:menu>
                 </div>
 
-                <div class="col-sm-6 col-lg-3 p-b-50">
+               @* <div class="col-sm-6 col-lg-3 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
                         GET IN TOUCH
                     </h4>
@@ -160,9 +160,9 @@
                             <i class="fa fa-pinterest-p"></i>
                         </a>
                     </div>
-                </div>
+                </div>*@
 
-                <div class="col-sm-6 col-lg-3 p-b-50">
+                <div class="col-sm-6 col-lg-4 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
                         @Localizer["Newsletter"]
                     </h4>
@@ -183,7 +183,7 @@
             </div>
 
             <div class="p-t-40">
-                <div class="flex-c-m flex-w p-b-18">
+                @*<div class="flex-c-m flex-w p-b-18">
                     <a href="#" class="m-all-1">
                         <img src="~/themes/CozaStore/images/icons/icon-pay-01.png" alt="ICON-PAY">
                     </a>
@@ -203,7 +203,7 @@
                     <a href="#" class="m-all-1">
                         <img src="~/themes/CozaStore/images/icons/icon-pay-05.png" alt="ICON-PAY">
                     </a>
-                </div>
+                </div>*@
                 <!--
                     You are freely remove or change this copyright notice below.
                     If you like SimplCommerce and want to help us continue to develop it then
@@ -249,7 +249,7 @@
     <script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>
     <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>
     <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
-    @if(CultureInfo.CurrentCulture.Name != SimplCommerce.Infrastructure.GlobalConfiguration.DefaultCulture)
+    @if (CultureInfo.CurrentCulture.Name != SimplCommerce.Infrastructure.GlobalConfiguration.DefaultCulture)
     {
         <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/@(CultureInfo.CurrentCulture.Name).js"></script>
     }
