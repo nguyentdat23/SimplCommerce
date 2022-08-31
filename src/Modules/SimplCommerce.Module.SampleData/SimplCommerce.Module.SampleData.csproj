@@ -14,6 +14,6 @@
   </ItemGroup>
   
   <Target Name="CopyModule" AfterTargets="Build">
-    <Copy SourceFiles="@(SampleContent)" DestinationFiles="@(SampleContent->'..\..\SimplCommerce.WebHost\Modules\SimplCommerce.Module.SampleData\SampleContent\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(SampleContent)" DestinationFiles="@(SampleContent-&gt;'..\..\SimplCommerce.WebHost\Modules\SimplCommerce.Module.SampleData\SampleContent\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
 </Project>
