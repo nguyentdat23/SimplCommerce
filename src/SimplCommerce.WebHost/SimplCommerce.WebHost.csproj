@@ -17,6 +17,7 @@
     <Content Remove="Themes\SampleTheme\**" />
     <EmbeddedResource Remove="Themes\SampleTheme\**" />
     <None Remove="Themes\SampleTheme\**" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL.Design" />
   </ItemGroup>
 
   <ItemGroup>
@@ -93,6 +94,7 @@
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00767" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

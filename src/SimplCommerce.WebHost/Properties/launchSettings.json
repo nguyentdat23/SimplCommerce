@@ -18,7 +18,7 @@
     "SimplCommerce.WebHost": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:49206;http://localhost:49208",
+      "applicationUrl": "http://localhost:49537",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
