@@ -11,11 +11,11 @@ services:
     volumes:
       - ${VOLUMES_BASEPATH}/logs:/app/logs
       - ${VOLUMES_BASEPATH}/usercontents:/app/wwwroots/user-content
+    restart: always
     ports:
       - "8080:80"
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
   postgres:
     image: postgres:latest
     restart: always
