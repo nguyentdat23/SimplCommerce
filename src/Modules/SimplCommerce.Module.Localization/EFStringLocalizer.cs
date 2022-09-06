@@ -59,8 +59,7 @@ namespace SimplCommerce.Module.Localization
         {
             var culture = CultureInfo.CurrentUICulture.Name;
             var resources = LoadResources(culture);
-            var value = resources.SingleOrDefault(r => r.Key == name)?.Value;
-
+            var value = resources.FirstOrDefault(r => r.Key == name)?.Value;
             if (value == null)
             {
                 AutoRegisterNewString(name, culture);

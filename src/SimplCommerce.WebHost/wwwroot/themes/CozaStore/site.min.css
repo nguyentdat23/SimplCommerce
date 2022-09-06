@@ -4595,7 +4595,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .card-img-top {
-    height: 180px;
+    height: 220px;
     object-fit: contain;
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px)
@@ -41683,7 +41683,7 @@ input.num-product {
 }
 
 .logoff {
-    font-family: Poppins-Regular;
+    font-family: FiraSans-Regular;
     font-size: 12px;
     line-height: 1.8;
     height: 100%;
