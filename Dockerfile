@@ -7,7 +7,7 @@ RUN sed -i 's#<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer
 RUN sed -i 's/UseSqlServer/UseNpgsql/' src/SimplCommerce.WebHost/Program.cs
 RUN sed -i 's/UseSqlServer/UseNpgsql/' src/SimplCommerce.WebHost/Extensions/ServiceCollectionExtensions.cs
 
-RUN rm src/SimplCommerce.WebHost/Migrations/* && cp -f src/SimplCommerce.WebHost/appsettings.docker.json src/SimplCommerce.WebHost/appsettings.json
+RUN rm -f src/SimplCommerce.WebHost/Migrations/* && cp -f src/SimplCommerce.WebHost/appsettings.docker.json src/SimplCommerce.WebHost/appsettings.json
 
 RUN dotnet tool install --global dotnet-ef --version 6.0.8
 ENV PATH="${PATH}:/root/.dotnet/tools"
